@@ -1,0 +1,180 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="students.master.cs" Inherits="Student_Course_Registration_System.students" %>
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<meta name="msapplication-TileColor" content="#0f75ff">
+		<meta name="theme-color" content="#9d37f6">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+    <title><% %>Student Regisrration Portal</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <%--for admin--%>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+		<!-- Title -->
+		
+		<link rel="stylesheet" href="../assets/fonts/fonts/font-awesome.min.css">
+
+		<!-- Font Family-->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+
+		<!-- Bootstrap Css -->
+		<link href="../assets/plugins/bootstrap-4.1.3/css/bootstrap.min.css" rel="stylesheet" />
+
+		<!-- Dashboard Css -->
+		<link href="../assets/css/dashboard.css" rel="stylesheet" />
+		<link href="../assets/css/admin-custom.css" rel="stylesheet" />
+
+		<!-- Sidemenu Css -->
+		<link href="../assets/plugins/toggle-sidebar/sidemenu.css" rel="stylesheet" />
+
+		<!-- Custom scroll bar css-->
+		<link href="../assets/plugins/scroll-bar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+		<!---Font icons-->
+		<link href="../assets/plugins/iconfonts/plugin.css" rel="stylesheet" />
+    
+    
+    
+    <%--for admin--%>
+</head>
+<body class="app sidebar-mini" >
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+              
+
+            
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="page-main">
+				<div class="app-header1 header py-1 d-flex">
+					<div class="container-fluid">
+						<div class="d-flex">
+							<a class="header-brand" href="index.html">
+								<img src="../assets/images/brand/logo1.png" class="header-brand-img" alt="Pinlist logo">
+							</a>
+							<a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
+							<div class="header-navicon">
+								<a href="#" data-toggle="search" class="nav-link d-lg-none navsearch-icon">
+									<i class="fa fa-search"></i>
+								</a>
+							</div>
+						
+							<div class="d-flex order-lg-2 ml-auto">
+							
+							
+							
+								
+								
+									<asp:Button ID="logoutbtn"  CssClass="btn btn-primary" runat="server" Text="logout" OnClick="userbtnLogout_Click"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Sidebar menu-->
+				<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+				<aside class="app-sidebar doc-sidebar">
+					<div class="app-sidebar__user clearfix">
+                        
+						<img src="assets/agiletech_logo.png" class="header-brand-img" alt="Pinlist logo">
+					</div>
+					<ul class="side-menu">
+						<li >
+							<a class="side-menu__item"  href="StudentHome.aspx"><i class="side-menu__icon fa fa-book"></i><span>Register Your Courses</span></a>
+						
+						</li>
+						<li class="slide">
+							<a class="side-menu__item"  href="CourseDetails"><i class="side-menu__icon fa fa-pencil"></i>Course Details</a>
+							
+						</li>
+						
+					</ul>
+					
+				</aside>
+
+				<div class="app-content  my-3 my-md-5">
+					<div class="side-app" style="background-color: white;">
+           
+<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+</asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </footer>
+        </div>
+			</div>
+      </div>
+        
+		
+		<!-- Dashboard Core -->
+		<script src="./assets/js/vendors/jquery-3.2.1.min.js"></script>
+		<script src="./assets/plugins/bootstrap-4.1.3/popper.min.js"></script>
+		<script src="./assets/plugins/bootstrap-4.1.3/js/bootstrap.min.js"></script>
+		<script src="./assets/js/vendors/jquery.sparkline.min.js"></script>
+		<script src="./assets/js/vendors/selectize.min.js"></script>
+		<script src="./assets/js/vendors/jquery.tablesorter.min.js"></script>
+		<script src="./assets/js/vendors/circle-progress.min.js"></script>
+		<script src="./assets/plugins/rating/jquery.rating-stars.js"></script>
+
+		<!--Counters -->
+		<script src="./assets/plugins/counters/counterup.min.js"></script>
+		<script src="./assets/plugins/counters/waypoints.min.js"></script>
+
+		<!-- Fullside-menu Js-->
+		<script src="./assets/plugins/toggle-sidebar/sidemenu.js"></script>
+
+		<!-- Custom scroll bar Js-->
+		<script src="./assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+		<!-- ECharts Plugin -->
+		<script src="./assets/plugins/echarts/echarts.js"></script>
+		<script src="./assets/plugins/echarts/echarts.js"></script>
+		<script src="./assets/js/index1.js"></script>
+
+		<!-- Custom Js-->
+		<script src="./assets/js/admin-custom.js"></script>
+    </form>
+</body>
+
+
+
+
+</html>
+
